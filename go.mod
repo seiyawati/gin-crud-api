@@ -2,4 +2,8 @@ module app
 
 go 1.15
 
-require github.com/gin-gonic/gin v1.9.1 // indirect
+require (
+	github.com/gin-gonic/gin v1.9.1 // indirect
+	gorm.io/driver/postgres v1.5.2 // indirect
+	gorm.io/gorm v1.25.4 // indirect
+)
