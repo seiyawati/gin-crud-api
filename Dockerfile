@@ -5,8 +5,8 @@ ENV CGO_ENABLED 0
 WORKDIR ${ROOT}
 
 RUN apt-get update && apt-get install -y git
+RUN go install github.com/cosmtrek/air@latest
 COPY go.mod go.sum ./
 RUN go mod download
-EXPOSE 8080
 
-CMD ["go", "run", "main.go"]
+CMD ["air", "-c", ".air.toml"]

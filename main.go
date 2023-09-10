@@ -18,6 +18,7 @@ func main() {
 	}
 
   fmt.Println("Connection Opened to Database")
+  fmt.Println("Hot Reload by Air")
 
 	db.AutoMigrate(&models.Todo{})
 
