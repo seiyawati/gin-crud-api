@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-  "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 	"gorm.io/driver/postgres"
-  "gorm.io/gorm"
+	"gorm.io/gorm"
 
 	"app/models"
 	"app/controllers"
@@ -12,20 +12,19 @@ import (
 
 func main() {
 	dsn := "user=postgres password=postgres dbname=postgres host=db port=5432 sslmode=disable"
-  db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
 
-  fmt.Println("Connection Opened to Database")
-  fmt.Println("Hot Reload by Air")
+	fmt.Println("Connection Opened to Database")
 
 	db.AutoMigrate(&models.Todo{})
 
 	todoModel := models.NewTodoModel(db)
-  todoController := controllers.NewTodoController(todoModel)
+	todoController := controllers.NewTodoController(todoModel)
 
-  router := gin.Default()
+	router := gin.Default()
 	router.GET("/todos", todoController.GetTodos)
 	router.GET("/todos/:id", todoController.GetTodo)
 	router.POST("/todos", todoController.CreateTodo)
