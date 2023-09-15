@@ -1,11 +1,12 @@
-FROM golang:latest
+FROM golang:alpine
 
 ENV ROOT=/go/src/app
 ENV CGO_ENABLED 0
 WORKDIR ${ROOT}
 
-RUN apt-get update && apt-get install -y git
-RUN go install github.com/cosmtrek/air@latest
+RUN apk add --no-cache git && \
+    go install github.com/cosmtrek/air@latest
+
 COPY go.mod go.sum ./
 RUN go mod download
 
