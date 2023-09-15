@@ -24,7 +24,7 @@ func (mc *TodoController) GetTodos(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": todos})
+	c.JSON(http.StatusOK, todos)
 }
 
 func (mc *TodoController) GetTodo(c *gin.Context) {
@@ -40,7 +40,7 @@ func (mc *TodoController) GetTodo(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": todo})
+	c.JSON(http.StatusOK, todo)
 }
 
 func (mc *TodoController) CreateTodo(c *gin.Context) {
@@ -56,7 +56,7 @@ func (mc *TodoController) CreateTodo(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": todo})
+	c.JSON(http.StatusOK, todo)
 }
 
 func (mc *TodoController) UpdateTodo(c *gin.Context) {
@@ -78,7 +78,7 @@ func (mc *TodoController) UpdateTodo(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": todo})
+	c.JSON(http.StatusOK, todo)
 }
 
 func (mc *TodoController) DeleteTodo(c *gin.Context) {
@@ -93,5 +93,5 @@ func (mc *TodoController) DeleteTodo(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": true})
+	c.JSON(http.StatusOK, true)
 }

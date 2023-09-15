@@ -8,6 +8,7 @@ import (
 
 	"app/models"
 	"app/controllers"
+	"app/middlewares"
 )
 
 func main() {
@@ -23,8 +24,10 @@ func main() {
 
 	todoModel := models.NewTodoModel(db)
 	todoController := controllers.NewTodoController(todoModel)
+	corsMiddleware := middlewares.CORSMiddleware()
 
 	router := gin.Default()
+	router.Use(corsMiddleware)
 	router.GET("/todos", todoController.GetTodos)
 	router.GET("/todos/:id", todoController.GetTodo)
 	router.POST("/todos", todoController.CreateTodo)
