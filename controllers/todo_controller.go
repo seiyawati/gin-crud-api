@@ -7,14 +7,18 @@ import (
 
 	"app/models"
 	"app/requests"
+	"app/database"
 )
 
 type TodoController struct {
 	Model *models.TodoModel
 }
 
-func NewTodoController(m *models.TodoModel) *TodoController {
-	return &TodoController{Model: m}
+func NewTodoController() *TodoController {
+	db := database.GetDB()
+  todoModel := models.NewTodoModel(db)
+
+	return &TodoController{Model: todoModel}
 }
 
 func (mc *TodoController) GetTodos(c *gin.Context) {
