@@ -1,0 +1,16 @@
+openapi: 3.0.3
+info:
+  title: TODO APP API
+  description: TODOアプリケーション API
+  version: 1.0.0
+paths:
+  /hoge:
+    get:
+      responses:
+        200:
+          description: Hoge
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Hoge
