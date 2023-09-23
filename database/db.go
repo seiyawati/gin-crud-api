@@ -1,16 +1,15 @@
 package database
 
 import (
-	"sync"
 	"gorm.io/gorm"
+	"sync"
 
 	"app/config"
 	"app/models"
 )
 
 var (
-	db  *gorm.DB
-	err error
+	db   *gorm.DB
 	once sync.Once
 )
 

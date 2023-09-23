@@ -1,13 +1,13 @@
 package controllers
 
 import (
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
-	"github.com/gin-gonic/gin"
 
+	"app/database"
 	"app/models"
 	"app/requests"
-	"app/database"
 )
 
 type TodoController struct {
@@ -16,7 +16,7 @@ type TodoController struct {
 
 func NewTodoController() *TodoController {
 	db := database.GetDB()
-  todoModel := models.NewTodoModel(db)
+	todoModel := models.NewTodoModel(db)
 
 	return &TodoController{Model: todoModel}
 }

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"app/server"
 	"app/database"
+	"app/server"
 )
 
 func main() {

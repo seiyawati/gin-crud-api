@@ -1,20 +1,20 @@
 package models
 
 import (
-	"time"
 	"gorm.io/gorm"
+	"time"
 )
 
 type BaseModel struct {
-	ID        uint       `gorm:"primary_key" json:"id"`
-	CreatedAt time.Time  `json:"created_at"`
-	UpdatedAt time.Time  `json:"updated_at"`
+	ID        uint      `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 type Todo struct {
 	BaseModel
-	Title  string  `json:"title"`
-	Author string  `json:"author"`
+	Title  string `json:"title"`
+	Author string `json:"author"`
 }
 
 type TodoModel struct {

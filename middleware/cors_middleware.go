@@ -11,8 +11,8 @@ func CORSMiddleware() gin.HandlerFunc {
 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type")
 
 		if c.Request.Method == "OPTIONS" {
-				c.AbortWithStatus(204)
-				return
+			c.AbortWithStatus(204)
+			return
 		}
 
 		c.Next()

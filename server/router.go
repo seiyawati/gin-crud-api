@@ -3,8 +3,8 @@ package server
 import (
 	"github.com/gin-gonic/gin"
 
-	"app/middleware"
 	"app/controllers"
+	"app/middleware"
 )
 
 func InitServer() *gin.Engine {
