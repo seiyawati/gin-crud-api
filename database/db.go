@@ -5,6 +5,7 @@ import (
 	"gorm.io/gorm"
 
 	"app/config"
+	"app/models"
 )
 
 var (
@@ -16,6 +17,7 @@ var (
 func InitDB() {
 	once.Do(func() {
 		db = config.ConnectDB()
+		migrateDB(db)
 	})
 }
 
@@ -25,4 +27,8 @@ func GetDB() *gorm.DB {
 
 func CloseDB() {
 	config.DisconnectDB(db)
+}
+
+func migrateDB(db *gorm.DB) {
+	db.AutoMigrate(&models.Todo{})
 }
